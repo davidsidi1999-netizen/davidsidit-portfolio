@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>DAVID SIDIT — Creative Visual Studio</title>
+
+    <meta
+      name="description"
+      content="Creative Video Editor • AI Visual Producer • Creative Direction"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="gradient-blob blob-left"></div>
+    <div class="gradient-blob blob-right"></div>
+    <div class="gradient-blob blob-center"></div>
+
+    <div class="noise"></div>
+
+    <header class="hero">
+      <nav class="navbar">
+        <div class="logo">DAVID SIDIT</div>
+
+        <div class="nav-right">
+          <div class="status">● AVAILABLE</div>
+        </div>
+      </nav>
+
+      <div class="hero-content">
+        <p class="hero-label">CREATIVE VISUAL STUDIO</p>
+
+        <h1>
+          <span class="accent">Creative</span> Editor<br />
+          AI Visual <span class="accent">Producer</span><br />
+          <span class="accent">Creative</span> Partner for artists
+        </h1>
+
+        <p class="hero-text">
+          I create cinematic edits, AI visuals and commercial content that helps
+          brands capture attention.
+        </p>
+
+        <a href="#portfolio" class="hero-button"> View Selected Work </a>
+      </div>
+
+      <div class="scroll">SCROLL ↓</div>
+    </header>
+
+    <main>
+      <section id="portfolio">
+        <div class="container">
+          <div class="section-top">
+            <p class="section-label">PORTFOLIO</p>
+
+            <h2>Selected Work</h2>
+          </div>
+
+          <div class="portfolio-grid">
+            <div class="portfolio-card" onclick="openCategory('editing')">
+              <h3>Video Editing</h3>
+
+              <p>Reels, Ads, Commercials</p>
+
+              <span> 6 Projects → </span>
+            </div>
+
+            <div class="portfolio-card" onclick="openCategory('creative')">
+              <h3>Creative Direction</h3>
+
+              <p>Concepts & Visual for artists</p>
+
+              <span> 4 Projects → </span>
+            </div>
+
+            <div class="portfolio-card" onclick="openCategory('ai')">
+              <h3>AI Visuals</h3>
+
+              <p>AI Generated Commercials</p>
+
+              <span> 5 Projects → </span>
+            </div>
+
+            <div class="portfolio-card" onclick="openCategory('commercials')">
+              <h3>Commercials</h3>
+
+              <p>Brands & Campaigns</p>
+
+              <span> 8 Projects → </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <p class="section-label">ABOUT</p>
+
+          <h2>Creating visuals that people remember.</h2>
+
+          <p class="about-text">
+            My work combines cinematic editing, creative strategy and AI-powered
+            storytelling. I help brands, creators and companies build content
+            that stands out.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <p class="section-label">CONTACT</p>
+
+          <h2>Let's build something great.</h2>
+
+          <div class="contact-links">
+            <a href="https://www.instagram.com/davidsidit/" target="_blank"
+              >Instagram</a
+            >
+            <a href="https://t.me/davidsidi/" target="_blank">Telegram</a>
+
+            <a href="mailto:davidsidi1999@gmail.com">Email</a>
+            <a href="https://www.youtube.com/@davidsidit/" target="_blank"
+              >YouTube</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer">
+        <p>© 2026 DAVIDSIDIT</p>
+
+        <p>Creative Visual Studio</p>
+      </div>
+    </footer>
+
+    <!-- Modal -->
+
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="gallery"></div>
+      </div>
+    </div>
+    <div id="welcome-toast" class="welcome-toast">
+      <div class="toast-content">
+        <span class="toast-close" onclick="closeToast()">&times;</span>
+        <p class="toast-ru">Ты в правильном месте для создания контента</p>
+        <p class="toast-en">You are in the right place for content creation</p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
