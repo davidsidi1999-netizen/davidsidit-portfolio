@@ -255,10 +255,6 @@ function playVideo(videoId, aspect = "horizontal") {
 // BACK TO PROJECTS
 // =====================================
 
-function backToProjects() {
-  openCategory(currentCategory);
-}
-
 function closeModal() {
   const modal = document.getElementById("modal");
   const gallery = document.getElementById("gallery");
