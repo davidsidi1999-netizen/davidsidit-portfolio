@@ -11,37 +11,43 @@ const portfolio = {
         title: "Сreative",
         client: "visual",
         cover: "images/editing/creative.jpg",
-        video: "videos/editing/creative.mp4",
+        video: "cADKHELegYY",
+        aspect: "horizontal",
       },
       {
         title: "collage",
         client: "creative",
         cover: "images/editing/creative1.jpg",
-        video: "videos/editing/creative1.mp4",
+        video: "1XF7hgGBPL0?feature=share",
+        aspect: "vertical",
       },
       {
         title: "REELS",
         client: "Сreative",
         cover: "images/editing/creative2.jpg",
-        video: "videos/editing/creative2.mp4",
+        video: "Q-qxcIdZWi4?feature=share",
+        aspect: "vertical",
       },
       {
         title: "visual effect",
         client: "art",
         cover: "images/editing/creative3.jpg",
-        video: "videos/editing/creative3.mp4",
+        video: "Xy72MKjUiPs?feature=share",
+        aspect: "vertical",
       },
       {
         title: "Сreative",
         client: "collage 2",
         cover: "images/editing/creative4.jpg",
-        video: "videos/editing/creative4.mp4",
+        video: "lVdZKdfXOHI?feature=share",
+        aspect: "vertical",
       },
       {
         title: "collage story",
         client: "crt",
         cover: "images/editing/creative5.jpg",
-        video: "videos/editing/creative5.mp4",
+        video: "ISXVdZnBchI?feature=share",
+        aspect: "vertical",
       },
     ],
   },
@@ -54,37 +60,43 @@ const portfolio = {
         title: "Concept 1",
         client: "Artist",
         cover: "images/creative/project1.jpg",
-        video: "videos/creative/project1.mp4",
+        video: "jVKO2R_SaeQ?feature=share",
+        aspect: "vertical",
       },
       {
         title: "Concept Two",
         client: "Nuteki",
         cover: "images/creative/project2.jpg",
-        video: "videos/creative/project2.mp4",
+        video: "dZFurMVP03U?feature=share",
+        aspect: "vertical",
       },
       {
         title: "Concept lll",
         client: "Sing",
         cover: "images/creative/project3.jpg",
-        video: "videos/creative/project3.mp4",
+        video: "SNKkNo_0hWU?feature=share",
+        aspect: "vertical",
       },
       {
         title: "Concept Four",
         client: "Visual artist",
         cover: "images/creative/project4.jpg",
-        video: "videos/creative/project4.mp4",
+        video: "pOCwGo8iugQ?feature=share",
+        aspect: "vertical",
       },
       {
         title: "Concept 5",
         client: "Artist in car",
         cover: "images/creative/project5.jpg",
-        video: "videos/creative/project5.mp4",
+        video: "iBSJs6O9Se0?feature=share",
+        aspect: "vertical",
       },
       {
         title: "Concept Six",
         client: "Artist",
         cover: "images/creative/project6.jpg",
-        video: "videos/creative/project6.mp4",
+        video: "NznJBgEtu0Y?feature=share",
+        aspect: "vertical",
       },
     ],
   },
@@ -97,25 +109,29 @@ const portfolio = {
         title: "AI Work",
         client: "AI FILM",
         cover: "images/ai/project1.jpg",
-        video: "videos/ai/project1.mp4",
+        video: "q4QqyrTRd2g",
+        aspect: "horizontal",
       },
       {
         title: "AI CARTOON",
         client: "AI",
         cover: "images/ai/project2.jpg",
-        video: "videos/ai/ai2.mp4",
+        video: "rRjbdjsGtv4",
+        aspect: "horizontal",
       },
       {
         title: "AI",
         client: "AI ARTIST",
         cover: "images/ai/project3.jpg",
-        video: "videos/ai/ai3.mp4",
+        video: "d64HGsJ_F5c?feature=share",
+        aspect: "vertical",
       },
       {
         title: "AI",
         client: "ADS",
         cover: "images/ai/project4.jpg",
-        video: "videos/ai/ai4.mp4",
+        video: "t5JT3TKLzDU?feature=share",
+        aspect: "vertical",
       },
     ],
   },
@@ -128,25 +144,29 @@ const portfolio = {
         title: "USA",
         client: "REELS",
         cover: "images/commercials/project1.jpg",
-        video: "videos/commercials/project1.mp4",
+        video: "Tx4y6CtplNc?feature=share",
+        aspect: "vertical",
       },
       {
         title: "PROMO",
         client: "building",
         cover: "images/commercials/project2.jpg",
-        video: "videos/commercials/project2.mp4",
+        video: "tWDJQ6ClK84?feature=share",
+        aspect: "vertical",
       },
       {
         title: "S",
         client: "trend",
         cover: "images/commercials/project3.jpg",
-        video: "videos/commercials/project3.mp4",
+        video: "Y_GEo7ze_to?feature=share",
+        aspect: "vertical",
       },
       {
         title: "WORK",
         client: "WTC",
         cover: "images/commercials/project4.jpg",
-        video: "videos/commercials/project4.mp4",
+        video: "tIacThSc8ao?feature=share",
+        aspect: "vertical",
       },
     ],
   },
@@ -186,13 +206,13 @@ function openCategory(category) {
         src="${project.cover}"
         alt="${project.title}"
         class="project-cover"
-        onclick="playVideo('${project.video}')"
+        onclick="playVideo('${project.video}', '${project.aspect || "horizontal"}')"
         style="cursor: pointer;"
       >
       <div class="project-info">
         <h3>${project.title}</h3>
         <p>${project.client}</p>
-        <button onclick="playVideo('${project.video}')">▶ View Project</button>
+        <button onclick="playVideo('${project.video}', '${project.aspect || "horizontal"}')">▶ View Project</button>
       </div>
     `;
     grid.appendChild(card);
@@ -206,37 +226,29 @@ function openCategory(category) {
 // PLAY VIDEO (компактный плеер)
 // =====================================
 
-function playVideo(video) {
+function playVideo(videoId, aspect = "horizontal") {
   const gallery = document.getElementById("gallery");
+  const playerClass =
+    aspect === "vertical"
+      ? "compact-player vertical"
+      : "compact-player horizontal";
 
   gallery.innerHTML = `
-
-<div class="player-wrapper">
-
-<video
-id="portfolioVideo"
-controls
-autoplay
-playsinline
-class="compact-player">
-
-<source src="${video}" type="video/mp4">
-
-</video>
-
-<div class="back-button">
-
-<button onclick="backToProjects()">
-
-← Back to Projects
-
-</button>
-
-</div>
-
-</div>
-
-`;
+    <div class="player-wrapper">
+      <iframe
+        id="portfolioVideo"
+        class="${playerClass}"
+        src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+      <div class="back-button">
+        <button onclick="backToProjects()">← Back to Projects</button>
+      </div>
+    </div>
+  `;
 }
 
 // =====================================
@@ -246,10 +258,6 @@ class="compact-player">
 function backToProjects() {
   openCategory(currentCategory);
 }
-
-// =====================================
-// CLOSE MODAL
-// =====================================
 
 function closeModal() {
   const modal = document.getElementById("modal");
@@ -265,10 +273,6 @@ function closeModal() {
   modal.style.display = "none";
 }
 
-// =====================================
-// CLICK OUTSIDE
-// =====================================
-
 window.addEventListener("click", function (e) {
   const modal = document.getElementById("modal");
   if (e.target === modal) {
@@ -276,19 +280,11 @@ window.addEventListener("click", function (e) {
   }
 });
 
-// =====================================
-// ESC BUTTON
-// =====================================
-
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
     closeModal();
   }
 });
-
-// =====================================
-// SMOOTH SCROLL
-// =====================================
 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -298,10 +294,6 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     });
   });
 });
-
-// =====================================
-// PAGE LOADED
-// =====================================
 
 window.addEventListener("load", () => {
   document.body.classList.add("loaded");

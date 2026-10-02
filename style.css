@@ -488,15 +488,22 @@ MODAL
 }
 
 .compact-player {
-  max-width: 420px;
-  max-height: 75vh;
-  width: auto;
-  height: auto;
-  aspect-ratio: 9 / 16;
   background: #000;
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-  object-fit: contain;
+  border: none;
+}
+
+.compact-player.horizontal {
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+}
+
+.compact-player.vertical {
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 9 / 16;
 }
 
 .back-button {
