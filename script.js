@@ -258,12 +258,6 @@ function playVideo(videoId, aspect = "horizontal") {
 function closeModal() {
   const modal = document.getElementById("modal");
   const gallery = document.getElementById("gallery");
-  const video = document.getElementById("portfolioVideo");
-
-  if (video) {
-    video.pause();
-    video.currentTime = 0;
-  }
 
   gallery.innerHTML = "";
   modal.style.display = "none";
